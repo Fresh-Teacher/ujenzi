@@ -25,7 +25,7 @@
        
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                const countdownEndDate = new Date('2023-12-22T00:00:00Z').getTime();
+                const countdownEndDate = new Date('2023-12-30T00:00:00Z').getTime();
         
               function updateCountdown() {
                 const now = new Date().getTime();
@@ -37,7 +37,7 @@
                   const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
         
                   // Change the message and add a line break
-                  document.getElementById('countdown').innerHTML = `This website is currently hosted on a temporary link and it will be removed in the next 24 hours. If you are the developer, we recommend purchasing a domain name to ensure uninterrupted access for your users.<p><br>It will be disabled in <strong><span class="modal-message">${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds.</strong></span>`;
+                  document.getElementById('countdown').innerHTML = `This website is currently hosted on a temporary link and it will be removed soon. If you are the developer, we recommend purchasing a domain name to ensure uninterrupted access for your users.<p><br>It will be disabled in <strong><span class="modal-message">${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds.</strong></span>`;
                 } else {
                   // Change the message when the time ends
                   const deletedMessage = document.createElement('p');
@@ -81,7 +81,7 @@
     </div>
   </div>
   </body>
-  
+
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top d-flex align-items-center header-transparent">
             <div class="container d-flex align-items-center justify-content-between">
