@@ -1059,7 +1059,7 @@ section {
   }
 }
 .shake-effect {
-  animation: shake 0.5s ease-in-out infinite;
+  animation: shake 0.9s ease-in-out infinite;
 }
 .details .content h3 {
   font-weight: 600;
