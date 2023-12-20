@@ -9,6 +9,9 @@
     .modal-message {
       color: red;
     }
+    .center-button {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -21,11 +24,10 @@
           <h5 class="modal-title w-100" id="maintenanceModalLabel">SHUTDOWN NOTICE</h5>
         </div>
         <div class="modal-body">
-          <p id="message" class="modal-message">This website is currently hosted on a temporary link, and it will be deleted in the next 24 hours.<br>If you are the developer, we recommend purchasing a domain name to avoid losing your content and ensure uninterrupted access for your users.</p>
-          <p id="countdown" class="modal-message"></p>
-          <!-- Purchase Domain button -->
-          <div class="text-center">
-            <button id="purchaseDomainBtn" type="button" class="btn btn-success d-none" onclick="purchaseDomain()">Purchase Domain</button>
+          <p id="countdown" class="modal-message">Initializing...</p>
+          <!-- "Buy New Domain" button with centering class -->
+          <div class="center-button">
+            <button type="button" class="btn btn-success" id="buyNewDomainBtn">Buy New Domain</button>
           </div>
         </div>
         <div class="modal-footer justify-content-center">
@@ -41,7 +43,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const countdownEndDate = new Date('2023-12-10T00:00:00Z').getTime();
+      const countdownEndDate = new Date('2023-12-23T00:00:00Z').getTime();
 
       function updateCountdown() {
         const now = new Date().getTime();
@@ -52,34 +54,31 @@
           const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
           const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-          // Update the countdown timer
-          document.getElementById('countdown').innerHTML = `<br><span class="modal-message">${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds.</span>`;
+          // Change the message and add a line break
+          document.getElementById('countdown').innerHTML = `This website is currently hosted on a temporary link, and it will be deleted in the next 24 hours.<br>If you are the developer, we recommend purchasing a domain name to avoid losing your content and ensure uninterrupted access for your users.<br>The website will be deleted in <span class="modal-message">${hours} Hours, ${minutes} Minutes, and ${seconds} Seconds.</span>`;
         } else {
           // Change the message when the time ends
           const deletedMessage = document.createElement('p');
           deletedMessage.className = 'modal-message';
-          deletedMessage.innerText = 'This website has been deleted from our temporary link. Please purchase a domain name to ensure uninterrupted access for your users.';
-          
-          // Replace the existing message and remove the "Ok, I understand" button
-          document.getElementById('message').replaceWith(deletedMessage);
+          deletedMessage.innerHTML = 'This website has been deleted from our temporary link. Please purchase a domain name to ensure uninterrupted access for your users.';
+          document.getElementById('countdown').replaceWith(deletedMessage);
+          // Remove the "Ok, I understand" button
           document.querySelector('.modal-footer').remove();
-
-          // Display the "Purchase Domain" button
-          document.getElementById('purchaseDomainBtn').classList.remove('d-none');
         }
-      }
-
-      // Function to handle the "Purchase Domain" button click
-      function purchaseDomain() {
-        // Redirect to Namecheap.com (you can replace the URL with the desired domain registration website)
-        window.location.href = 'https://www.namecheap.com/';
       }
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
 
-      $('#maintenanceModal').modal(); // Remove the backdrop option
-
+      $('#maintenanceModal').modal({
+        backdrop: 'static',
+        keyboard: false
+      });
+    // Add click event for "Buy New Domain" button
+    document.getElementById('buyNewDomainBtn').addEventListener('click', function () {
+        // Replace 'YOUR_DOMAIN_REGISTRAR_URL' with the actual URL of the domain registrar
+        window.location.href = 'https://www.godaddy.com/';
+      });
     });
   </script>
 </body>
