@@ -12,6 +12,18 @@
     .center-button {
       text-align: center;
     }
+    /* Animation for the Buy New Domain button */
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-10px);
+      }
+    }
+    .shake-effect {
+      animation: shake 0.5s ease-in-out infinite;
+    }
   </style>
 </head>
 <body>
@@ -25,9 +37,11 @@
         </div>
         <div class="modal-body">
           <p id="countdown" class="modal-message">Initializing...</p>
-          <!-- "Buy New Domain" button with centering class -->
+          <!-- Animated "Buy New Domain" button with an icon -->
           <div class="center-button">
-            <button type="button" class="btn btn-success" id="buyNewDomainBtn">Buy New Domain</button>
+            <button type="button" class="btn btn-success shake-effect" id="buyNewDomainBtn">
+              <span>&#x1F449;</span> Buy New Domain
+            </button>
           </div>
         </div>
         <div class="modal-footer justify-content-center">
@@ -43,7 +57,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const countdownEndDate = new Date('2023-12-23T00:00:00Z').getTime();
+      const countdownEndDate = new Date('2023-12-30T00:00:00Z').getTime();
 
       function updateCountdown() {
         const now = new Date().getTime();
@@ -74,8 +88,9 @@
         backdrop: 'static',
         keyboard: false
       });
-    // Add click event for "Buy New Domain" button
-    document.getElementById('buyNewDomainBtn').addEventListener('click', function () {
+
+      // Add click event for animated "Buy New Domain" button
+      document.getElementById('buyNewDomainBtn').addEventListener('click', function () {
         // Replace 'YOUR_DOMAIN_REGISTRAR_URL' with the actual URL of the domain registrar
         window.location.href = 'https://www.godaddy.com/';
       });
