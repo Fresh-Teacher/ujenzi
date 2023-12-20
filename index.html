@@ -25,7 +25,7 @@
        
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                const countdownEndDate = new Date('2023-12-30T00:00:00Z').getTime();
+                const countdownEndDate = new Date('2023-12-20T00:00:00Z').getTime();
         
               function updateCountdown() {
                 const now = new Date().getTime();
@@ -68,30 +68,6 @@
     <body>
 
         
-  <!-- Your modal HTML structure -->
-  <div class="modal" id="maintenanceModal" tabindex="-1" role="dialog" aria-labelledby="maintenanceModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h5 class="modal-title w-100" id="maintenanceModalLabel">SHUTDOWN NOTICE</h5>
-        </div>
-        <div class="modal-body">
-            <p id="countdown" class="valid-message">Initializing...</p>
-            <!-- Animated "Buy New Domain" button with an icon -->
-            <div class="center-button">
-              <button type="button" class="btn btn-success shake-effect" id="buyNewDomainBtn">
-                <span>&#x1F449;</span> Buy New Domain
-              </button>
-            </div>
-          </div>
-        <div class="modal-footer justify-content-center">
-          <!-- "Ok, I understand" button -->
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, I understand 👍</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  </body>
 
         <!-- ======= Header ======= -->
         <header id="header" class="fixed-top d-flex align-items-center header-transparent">
@@ -223,7 +199,30 @@
 </section>
 <!-- End About Section -->
 
-            
+             <!-- Your modal HTML structure -->
+  <div class="modal" id="maintenanceModal" tabindex="-1" role="dialog" aria-labelledby="maintenanceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title w-100" id="maintenanceModalLabel">SHUTDOWN NOTICE</h5>
+        </div>
+        <div class="modal-body">
+            <p id="countdown" class="valid-message">Initializing...</p>
+            <!-- Animated "Buy New Domain" button with an icon -->
+            <div class="center-button">
+              <button type="button" class="btn btn-success shake-effect" id="buyNewDomainBtn">
+                <span>&#x1F449;</span> Buy New Domain
+              </button>
+            </div>
+          </div>
+        <div class="modal-footer justify-content-center">
+          <!-- "Ok, I understand" button -->
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, I understand 👍</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
           <!-- ======= Counts Section ======= -->
 <section id="counts" class="counts">
     <div class="container">
